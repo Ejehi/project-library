@@ -1,17 +1,20 @@
 let myLibrary = [];
 
-function Book(id, author, title, pages, status) {
-    this.author = author;
-    this.title = title;
-    this.id = id;
-    this.pages = pages;
-    this.status = status;
-}
+class Book {
+    constructor(id, author, title, pages, status) {
+        this.author = author;
+        this.title = title;
+        this.id = id;
+        this.pages = pages;
+        this.status = status;
+    }
 
-Book.prototype.toggleReadStatus = function() {
-    this.status = !this.status;
-    console.log(this.status);
-    console.log(myLibrary);
+    toggleReadStatus() {
+        this.status = !this.status;
+        console.log(this.status);
+        console.log(myLibrary);
+    }
+
 }
 
 function addBookToLibrary(author, title, pages, status) {
@@ -111,14 +114,3 @@ shelf.addEventListener('click', function(event) {
 addBookBtn.addEventListener('click', function () {
     dialogBox.showModal();
 });
-
-// submitBookInfo.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     let author = authorField.value;
-//     let title = titleField.value;
-//     let pages = pagesField.value;
-//     let status = document.querySelector('input[name = "status"]:checked').value === "true" ? true : false;
-//     addBookToLibrary(author, title, pages, status);
-//     displayBooksInLibrary(myLibrary);
-//     dialogBox.close();
-// });
